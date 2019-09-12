@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_100359) do
     t.integer "genre_id", null: false
     t.string "image", default: "", null: false
     t.text "comment", default: "", null: false
+    t.integer "sex_post", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

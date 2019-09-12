@@ -1,0 +1,61 @@
+<header class="container-fluid">
+    <div class="row">
+        <div class="col-xs-3 col-sm-4 head-left">
+        <div class="login-status">
+            <% if current_end_user_signed_in? %>
+            <span class="glyphicon glyphicon-user"></span>
+            <%= link_to end_user_path(current_end_user), :style=>"color:lightgreen;" do %><%= current_end_user.name %><% end %>さん
+            <br>ログイン中
+            <% end %>
+        </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 head-center">
+            <%= link_to root_path, class: "header-link" do %>
+            <h1>Me</h1><% end %>
+        </div>
+        <div class="col-xs-5 col-sm-4 head-right head-menu">
+        <%# ハンバーガーメニュー機能 %>
+
+        <div id="menu">
+            <% if current_end_user_signed_in? %>
+                <li><%= link_to "マイページ",current_end_user_path %></li>
+                <li><%= link_to "ログアウト",destroy_end_user_session_path, method: :delete %></li>
+            <% else %>
+                <li><%= link_to "会員登録",new_end_user_registration_path %></li>
+                <li><%= link_to "ログイン", new_end_user_session_path %></li>
+            <% end %>
+            <% if end_user.woman %>
+                <li><%= link_to "KIDSのコーデをみる", posts_path %></li>
+                <li><%= link_to "MENSのコーデをみる", posts_path %></li>
+            <% else end_user.man %>
+                <li><%= link_to "KIDSのコーデをみる", posts_path %></li>
+                <li><%= link_to "WOMANのコーデをみる", posts_path %></li>
+            <% else end_user.kids %>
+                <li><%= link_to "KIDSのコーデをみる", posts_path %></li>
+                <li><%= link_to "WOMANのコーデをみる", posts_path %></li>
+            <% end %>
+            <li><%= link_to "トップページ", items_path %></li>
+        </ul>
+        </div>
+
+            <div class="menu pull-right" id="menu-box">
+                    <span class="top"></span>
+                    <span class="middle"></span>
+                    <span class="bottom"></span>
+            </div>
+        <%# ログイン機能 %>
+            <div class="login-status pull-right">
+                <% if end_user_signed_in? %>
+                    <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %><br>
+                <% else %>
+                    <%= link_to "ログイン", new_end_user_session_path %><br>
+                    <%= link_to "新規登録", new_end_user_registration_path %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+</header>

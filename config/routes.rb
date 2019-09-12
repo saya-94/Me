@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :end_users
+
+  devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+  }
+  
+  devise_for :end_users, controllers: {
+    sessions:      'end_users/sessions',
+    passwords:     'end_users/passwords',
+    registrations: 'end_users/registrations'
+  }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
@@ -13,7 +24,7 @@ Rails.application.routes.draw do
   resources :end_users
 
   # 管理者
-  resources :manage_end_users
+  resources :admins
 
   # いいね
   resources :likes
