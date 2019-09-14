@@ -5,6 +5,8 @@ class Post < ApplicationRecord
       woman: 1,
       man: 2,
   }
-end
+
+# refile用
+attachment :image
 
 end

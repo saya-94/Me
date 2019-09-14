@@ -1,0 +1,59 @@
+<%# Font Awesome %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+            <%# 新規投稿、設定 %>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="new-post-link" >
+                        <%= link_to "コーデを投稿する", new_post_path, class: "btn btn-primary" %>
+                    </div>
+                </div>
+                <div class="col-md-8"></div>
+                <div class="col-md-2">
+                    <div class="new-post-link" >
+                        <%= link_to "", edit_end_user_path, class: "fas fa-cogs" %>
+                    </div>
+                </div>
+            </div>
+
+            <%# プロフィール画像 %>
+            <div class="profile-image">
+            <div class="col-md-6 col-md-offset-3">
+                <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "人物アイコン.jpg", size: "300x300" %>
+            </div>
+            </div>
+
+            <%# フォロワー %>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                </div>
+            </div>
+
+            <%# 画像選択　タブ %>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-4">
+                    <ui class="tab-group">
+                        <li class="tab is-active">マイコーデ</li>
+                        <li class="tab">ブックマーク</li>
+                    </ui>
+                </div>
+            </div>
+
+            <%# マイコーデの画像一覧 %>
+            <% @post.each do |post| %>
+            <tr>
+              <td><%= attachment_image_tag @post, :image, :fill, 50, 50, fallback: "mini_no_image.jpg" %></td>
+              <td><%= attachment_image_tag @post, :image, :fill, 50, 50, fallback: "mini_no_image.jpg" %></td>
+              <td><%= attachment_image_tag @post, :image, :fill, 50, 50, fallback: "mini_no_image.jpg" %></td>
+            </tr>
+            <% end %>
+
+
+
+        </div>
+    </div>
+</div>

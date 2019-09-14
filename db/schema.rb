@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_100359) do
+ActiveRecord::Schema.define(version: 2019_09_13_200538) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 2019_09_10_100359) do
 
   create_table "end_users", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.string "profile_image", default: "", null: false
+    t.string "profile_image_id", default: "", null: false
     t.string "sex", default: "", null: false
-    t.integer "height", null: false
-    t.integer "age", null: false
+    t.integer "height", default: -1, null: false
+    t.integer "age", default: -1, null: false
     t.string "email", default: "", null: false
     t.string "password", default: "", null: false
     t.datetime "created_at", null: false
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2019_09_10_100359) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_end_users_on_deleted_at"
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
@@ -76,7 +78,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_100359) do
 
   create_table "genres", force: :cascade do |t|
     t.string "genre", default: "", null: false
-    t.string "style", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -91,9 +92,16 @@ ActiveRecord::Schema.define(version: 2019_09_10_100359) do
   create_table "posts", force: :cascade do |t|
     t.integer "end_user_id", null: false
     t.integer "genre_id", null: false
-    t.string "image", default: "", null: false
+    t.string "image_id", default: "", null: false
     t.text "comment", default: "", null: false
     t.integer "sex_post", null: false
+    t.string "style_id", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "style", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
