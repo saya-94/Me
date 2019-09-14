@@ -34,7 +34,7 @@ class AddDeviseToEndUsers < ActiveRecord::Migration[5.2]
 
 
       # Uncomment below if timestamps were not included in your original model.
-      #t.string :name, null: false, default: ""
+      # t.string :name
       # t.timestamps null: false
     end
 
