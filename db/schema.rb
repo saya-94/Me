@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_200538) do
     t.integer "age", default: -1, null: false
     t.string "email", default: "", null: false
     t.string "password", default: "", null: false
+    t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_200538) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre", default: "", null: false
+    t.integer "genre", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

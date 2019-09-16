@@ -15,9 +15,9 @@ class PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.end_user_id = current_end_user.id
             if @post.save
-                redirect_to post_path(@post), notice: 'You have creatad book successfully.'
+                redirect_to end_user_path(@post)
             else
-                @posts = Post.all
+                flash.now[:alert] = '投稿に失敗しました。入力内容を確認してください。'
                 render :index
             end
     end
@@ -29,6 +29,12 @@ class PostsController < ApplicationController
     end
 
     def destroy
+    end
+
+
+    private
+    def post_params
+      params.require(:post).permit(:comment, :sex_post)
     end
 
 end

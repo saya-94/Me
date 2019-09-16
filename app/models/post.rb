@@ -1,12 +1,16 @@
 class Post < ApplicationRecord
 
   enum sex_post:{
-      kids: 0,
-      woman: 1,
-      man: 2,
+      KIDS: 0,
+      WOMAN: 1,
+      MAN: 2
   }
 
 # refile用
 attachment :image
+
+belongs_to :end_user
+belongs_to :genre
+belongs_to :style
 
 end

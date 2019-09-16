@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="setting-link"><%= link_to "プロフィール編集",  edit_end_user_path, class: "btn btn-default" %></div>
+            <div class="setting-link"><%= link_to "メールアドレス変更",  change_email_end_users_path, class: "btn btn-default" %></div>
+            <div class="setting-link"><%= link_to "パスワード変更",  change_password_end_users_path, class: "btn btn-default" %></div>
+
+            <div class="link"><%= link_to "戻る", end_user_path(@end_user.id) %></div>
+        
+        </div>
+    </div>
+</div>
