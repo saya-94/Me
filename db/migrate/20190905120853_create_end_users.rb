@@ -8,6 +8,7 @@ class CreateEndUsers < ActiveRecord::Migration[5.2]
       t.integer :age, null: false, default: "-1"
       t.string :email, null: false, default: ""
       t.string :password, null: false, default: ""
+      t.text :introduction
 
       t.timestamps
     end

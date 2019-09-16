@@ -11,15 +11,42 @@
 
             <%= form_for(@post) do |f| %>
 
-            <h4>本文</h4>
-            <%= f.text_area :comment %>
+            <div class="form-group">
+                <div class="item-form"><%= f.label :画像 %>
+                <em>必須項目</em></div>
+                <%= f.attachment_field :image %>
+            </div>
 
-            <h4>画像</h4>
-            <%= f.attachment_field :image %>
+            <div class="form-group">
+                <div class="item-form"><%= f.label :本文 %></div>
+                <%= f.text_area :comment %>
+            </div>
 
-            <%= f.submit '投稿' %>
+            <div class="form-group">
+                <div class="item-form"><%= f.label :スタイルを選択してください %>
+                <em>必須項目</em></div>
+                <%= f.select :style, ['Pants style', 'Skirt style'], :prompt => "選択してください", class: 'form-control' %>
+            </div>
 
-            <% end %>
+            <div class="form-group">
+                <div class="item-form"><%= f.label :ジャンルを選択してください %>
+                <em>必須項目</em></div>
+                <%= f.select :genre, Genre.genres.keys,:prompt => "選択してください" %>
+            </div>
+
+            <div class="form-group">
+                <div class="item-form"><%= f.label :コーデの性別 %>
+                <em>※必須項目</em></div>
+                <%= f.select :sex_post, Post.sex_posts.keys, :prompt => "選択してください", class: 'form-control' %>
+            </div>
+
+            <div class="text-center">
+                <div class="col-md-10"><%= f.submit "投稿する", class:"btn btn-primary btn-lg" %></div>
+            </div>
+
+                <% end %>
+
+            </div>
 
         <div class="col-md-2"></div>
 

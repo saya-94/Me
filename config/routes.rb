@@ -21,7 +21,20 @@ Rails.application.routes.draw do
   root "posts#index"
 
   # エンドユーザー
-  resources :end_users
+  resources :end_users do
+
+  collection do
+    get 'change_password'
+    patch 'password_update' => 'end_users#password_update', as: 'password_update'
+    get 'change_email'
+    patch 'email_update' => 'end_users#email_update', as: 'email_update'
+    end
+  member do
+    get 'setting'
+  end
+  end
+
+
 
   # 管理者
   resources :admins
