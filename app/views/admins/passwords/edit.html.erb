@@ -1,4 +1,6 @@
-<h2>Change your password</h2>
+  <%= render 'common_template/admin_header' %>
+
+<h2>パスワード変更</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -9,7 +11,7 @@
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form-control" %>
   </div>
 
   <div class="field">
