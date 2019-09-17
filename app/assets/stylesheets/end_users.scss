@@ -41,9 +41,10 @@
 
 
     // 写真、プロフィール情報
-.fa-cogs{
-    font-size: 40px;
+.fas{
+    font-size: 20px;
     color: black;
+    padding: 8px 0;
 }
 
 .img{
@@ -62,4 +63,54 @@
 
 .fa-cogs{
     margin-left: 195%;
+}
+
+
+
+    // ヘッダー
+
+// h1{
+//     padding-bottom: 5px;
+//     font-size: 15px;
+// }
+
+
+
+.header-link{
+    color: #FFF;
+    text-align: center;
+}
+
+header{
+    background-color: rgba( 0, 0, 0, 0.8);
+    margin-bottom: 20px;
+}
+
+.log-check{
+    color: #FFF;
+}
+
+.login-status a{
+    color: #FFF;
+}
+
+
+    // setting画面
+.setting-btn{
+    width: 350px;
+    height: 45px;
+}
+
+.setting-link{
+    margin-bottom: 25px;
+}
+
+.setting-page{
+    margin-bottom: 45px;
+}
+
+
+    // メールアドレス変更画面
+.actions{
+    margin-bottom: 25px;
 }

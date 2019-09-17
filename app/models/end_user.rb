@@ -4,15 +4,18 @@ class EndUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # ユーザー名 => 空欄だめ、1文字〜30文字以内で入力
-  validates :name, presence: true, length: { in: 1..30 }
+  # ユーザー名 => 空欄だめ、1文字〜30文字以内で入力、ユニーク
+  validates :name, presence: true, uniqueness: true, length: { in: 1..30 }
 
   # 性別を必ず何かを選択すること
   validates :sex, presence: true
 
-  # メールアドレス => 空欄だめ、【***@***.***】の形で入力　例:aaa@aa.a
+  # メールアドレス => 空欄だめ、ユニーク、【***@***.***】の形で入力　例:aaa@aa.a
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+
+
+
 
 
   has_many :likes, dependent: :destroy

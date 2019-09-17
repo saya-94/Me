@@ -39,6 +39,16 @@ class EndUsersController < ApplicationController
         redirect_to end_user_path(@end_user)
     end
 
+    def change_email
+      @end_user = current_end_user
+    end
+
+    def email_update
+      @end_user = current_end_user
+      @end_user.update(end_user_params)
+      redirect_to end_user_path(@end_user)
+    end
+
 
 
         private

@@ -16,3 +16,27 @@
 
  @import "bootstrap-sprockets";  /*ここを追加*/
  @import "bootstrap";            /*ここを追加*/
+
+
+h2{
+    margin-bottom: 50px;
+}
+
+    // メールアドレス変更画面
+    .form-group{
+        margin-bottom: 25px;
+    }
+
+    // マイページの新規投稿するアイコン
+    .post-img{
+        height: 30px;
+        width: 30px;
+    }
+
+
+    // ヘッダー
+
+    h1{
+        padding-bottom: 5px;
+        font-size: 45px;
+    }

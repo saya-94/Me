@@ -1,23 +1,9 @@
-<%# Font Awesome %>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+
+<%= render 'common_template/header' %>
 
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-
-            <%# 新規投稿、設定 %>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="new-post-link" >
-                        <%= link_to "コーデを投稿する", new_post_path, class: "btn btn-default" %>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="new-post-link" >
-                        <%= link_to "", setting_end_user_path, class: "fas fa-cogs" %>
-                    </div>
-                </div>
-            </div>
 
             <%# プロフィール画像 %>
             <div class="row">

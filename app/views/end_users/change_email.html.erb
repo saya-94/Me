@@ -1,0 +1,32 @@
+<%= render 'common_template/header' %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        
+        <h2>メールアドレス変更</h2>
+
+            <%= form_for @end_user, url: {:controller => :end_users, :action=>:email_update} do |f| %>
+
+            <div class="email-page-form">
+
+                <div class="form-group email-group">
+                <%= f.label :現在のメールアドレス %><br />
+                <%= @end_user.email %>
+                </div>
+
+                <div class="form-group email-group">
+                <%= f.label :新しいメールアドレス %><br />
+                <%= f.email_field :email, class:"form-control email-form", autocomplete: "email" %>
+                </div>
+
+                <div class="actions">
+                    <%= f.submit "メールアドレスを変更する", class: "btn btn-default" %>
+                </div>
+                <% end %>
+
+                <div class="link"><%= link_to "戻る", end_user_path(@end_user.id) %></div>
+            </div>
+        </div>
+    </div>
+</div>
