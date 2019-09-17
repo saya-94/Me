@@ -37,7 +37,12 @@ Rails.application.routes.draw do
 
 
   # 管理者
-  resources :admins
+  resources :admins, only: [:index, :show, :edit, :update] do
+  member do
+  get "/delete_users" => "admins#delete", as:"delete_users"
+  get '/search' => "admin#search"
+  end
+  end
 
   # いいね
   resources :likes

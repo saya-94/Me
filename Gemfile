@@ -77,3 +77,6 @@ gem "refile-mini_magick"
 
 # 論理削除用gem
 gem 'paranoia'
+
+# 検索用gem
+gem 'ransack'
