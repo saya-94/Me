@@ -17,10 +17,28 @@
  @import "bootstrap-sprockets";  /*ここを追加*/
  @import "bootstrap";            /*ここを追加*/
 
+    // リセットCSS
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-h2{
-    margin-bottom: 50px;
-}
+    // .clearfix::after{
+    //     content:"";
+    //     display: block;
+    //     clear: both;
+    // }
+
+
+
+
+
+
+
+    h2{
+        margin-bottom: 50px;
+    }
 
     // メールアドレス変更画面
     .form-group{
@@ -39,4 +57,64 @@ h2{
     h1{
         padding-bottom: 5px;
         font-size: 45px;
+    }
+
+
+    // フッター
+
+
+
+
+
+
+
+
+
+
+
+
+    .red-text{
+        color: red;
+    }
+
+    em{
+        color: red;
+    }
+
+    // 部分テンプレート（add_genre）
+    .genre-form{
+        width: 75%;
+    }
+
+
+    // 投稿show画面
+
+    .show-user-name span{
+        display: inline;
+    }
+
+    .show-post-img{
+        width:700px;
+        height:700px;
+        object-fit:cover;
+    }
+
+    #show-icon{
+        margin: 30px 0 20px 5%;
+    }
+
+    .post-link{
+        color: black;
+    }
+
+    .post-show-comment{
+        margin: 40px 0 10px 0;
+    }
+
+    .post-img-under{
+        margin: 10px 0 15px 0;
+    }
+
+    .post-show-btn{
+        margin: 20px 0 20px 0;
     }

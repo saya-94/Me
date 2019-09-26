@@ -32,6 +32,125 @@ EndUser.create!(
 )
 
 Admin.create!(
-    email: "admin@test.com",
+    email: "admin@test.com",,
     password: "aaaaaa"
+)
+
+Genre.create!(
+  [
+    {
+      genre: "カジュアル",
+    },
+    {
+      genre: "キレカジ系",
+    },
+    {
+      genre: "セレカジ",
+    },
+    {
+      genre: "お姉系",
+    },
+    {
+      genre: "きれいめ系",
+    },
+    {
+      genre: "お兄・渋谷系",
+    },
+    {
+      genre: "メンノン",
+    },
+    {
+      genre: "コンサバ",
+    },
+    {
+      genre: "モード系",
+    },
+    {
+      genre: "サロン系",
+    },
+    {
+      genre: "原宿",
+    },
+    {
+      genre: "裏原",
+    },
+    {
+      genre: "ギャル男",
+    },
+    {
+      genre: "ガーリー系",
+    },
+    {
+      genre: "フェミニン",
+    },
+    {
+      genre: "レゲエ",
+    },
+    {
+      genre: "ストリート",
+    },
+    {
+      genre: "ホスト",
+    },
+    {
+      genre: "ヒップホップ",
+    },
+    {
+      genre: "森ガール",
+    },
+    {
+      genre: "オラオラ",
+    },
+    {
+      genre: "エスニック",
+    },
+    {
+      genre: "ロック",
+    },
+    {
+      genre: "B系",
+    },
+    {
+      genre: "ギャル",
+    },
+    {
+      genre: "姉ギャル",
+    },
+    {
+      genre: "姫系",
+    },
+    {
+      genre: "ゴスロリ",
+    },
+    {
+      genre: "アメカジ",
+    },
+    {
+      genre: "サーフ系",
+    },
+    {
+      genre: "マリン系",
+    },
+    {
+      genre: "ベーシック",
+    },
+    {
+      genre: "オフィス",
+    },
+    {
+      genre: "レトロ",
+    },
+    {
+      genre: "プチプラ",
+    },
+    {
+      genre: "オタク系",
+    },
+    {
+      genre: "脱オタク系",
+    },
+    {
+      genre: "その他",
+    }
+  ]
 )

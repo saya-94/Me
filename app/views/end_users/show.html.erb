@@ -3,38 +3,42 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
 
             <%# プロフィール画像 %>
             <div class="row">
 
                 <div class="text-right profile-image">
-                <div class="col-md-5">
-                    <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "人物アイコン.jpg", size: "300x300",class: "img" %></div>
+                    <div class="col-md-6">
+                        <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "人物アイコン.jpg", size: "300x300",class: "img" %>
+                    </div>
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-md-6">
 
                     <%# ユーザー名 %>
-                    <div class="row form-box">
+                    <div class="row form-box text-left">
                         <div class="col-md-12 show" id="user-name"><%= @end_user.name %></div>
                     </div>
 
                     <%# 身長 %>
-                    <div class="row form-box">
-                        <div class="col-md-12 show"><%= @end_user.height %></div>
-                        <% if @end_user.height == "未回答" %>
-                        <% @end_user.height = "未回答"%>
-                        <% end %>
+                    <div class="row form-box text-left">
+                        <div class="col-md-12 show">
+                            <% if @end_user.height == -1 %>
+                                    <td><%= '未回答' %></td>
+                            <% else %>
+                                    <td><%= @end_user.height %></td>
+                            <% end %>
+                        </div>
                     </div>
 
                     <%# フォロワー %>
-                    <div class="row form-box">
+                    <div class="row form-box text-left">
                         <div class="col-md-12 show">フォロー/フォロワー</div>
                     </div>
 
                     <%# 自己紹介 %>
-                    <div class="row form-box">
+                    <div class="row form-box text-left">
                         <div class="col-md-12 show"><%= @end_user.introduction %></div>
                     </div>
 
@@ -47,22 +51,36 @@
                 <div class="col-md-12">
                     <ui class="tab-group">
                         <li class="tab is-active">マイコーデ</li>
+                    <% if end_user_signed_in? && current_end_user.id %>
                         <li class="tab">ブックマーク</li>
+                    <% end %>
                     </ui>
                 </div>
             </div>
 
             <%# マイコーデの画像一覧 %>
-            <% @post.each do |post| %>
             <div class="panel-group">
-              <div class="panel is-show"><%= attachment_image_tag @post, :image, :fill, 50, 50, fallback: "mini_no_image.jpg" %></div>
-            <% end %>
+                <div class="panel is-show">
+                    <% @post.each do |post| %>
 
-            <%# ブックマークの画像一覧 %>
-            <% @post.each do |post| %>
-              <div class="panel"><%= attachment_image_tag @post, :image, :fill, 50, 50, fallback: "mini_no_image.jpg" %></div>
+                        <div class="image-box">
+                            <%= link_to post_path(post.id), class: "post-link" do %>
+                                <%= attachment_image_tag post, :image, class: "post-image" %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+
+                <%# ブックマークの画像一覧 %>
+                <div class="panel">
+                    <% @post.each do |post| %>
+                        <%= post.image %>
+                        aaaaaa
+                        <%# <%= attachment_image_tag @post, :image, :fill, 50, 50 %>
+                    <% end %>
+                </div>
+
             </div>
-            <% end %>
 
 
         </div>

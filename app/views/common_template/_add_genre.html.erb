@@ -1,0 +1,14 @@
+<div class="genre-form-box">
+
+    <h4>ジャンル追加フォーム</h4>
+    <%= form_for(@genre) do |f| %>
+
+        <div class="form-group-genre">
+            <%= f.text_field :genre, autofocus: true, class:"form-control genre-form", autocomplete: "off", placeholder:"ジャンル" %>
+        </div>
+
+        <div>
+            <%= f.submit "追加する", class:"btn btn-danger" %>
+        </div>
+    <% end %>
+</div>

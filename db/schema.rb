@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_200538) do
+ActiveRecord::Schema.define(version: 2019_09_12_042824) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_200538) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "genre", null: false
+    t.string "genre", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,12 +97,6 @@ ActiveRecord::Schema.define(version: 2019_09_13_200538) do
     t.text "comment", default: "", null: false
     t.integer "sex_post", null: false
     t.string "style_id", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "styles", force: :cascade do |t|
-    t.string "style", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

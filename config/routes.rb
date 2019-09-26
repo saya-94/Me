@@ -39,22 +39,28 @@ Rails.application.routes.draw do
   # 管理者
   resources :admins, only: [:index, :show, :edit, :update] do
   member do
-  get "/delete_users" => "admins#delete", as:"delete_users"
+  delete "/delete_users" => "admins#delete", as:"delete_users"
   get '/search' => "admin#search"
   end
   end
 
-  # いいね
-  resources :likes
 
-  # ブックマーク
-  resources :bookmarks
+
+
 
   # 投稿
-  resources :posts
+  resources :posts do
+    # いいね
+    resource :likes, only: [:create, :destroy]
+    # ブックマーク
+    resource :bookmarks, only: [:create, :destroy]
+  end
 
   # フォロー
   resources :followers
 
+  #ジャンル
+  resources :genres, only: [:index, :create, :update]
+  delete 'genre/destroy' => "genres#destroy", as: 'destroy_genre'
 
 end
