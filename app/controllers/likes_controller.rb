@@ -1,25 +1,20 @@
 class LikesController < ApplicationController
 
-    def index
-    end
-
-    def show
-    end
-
-    def new
-    end
-
     def create
-    end
-
-    def edit
-    end
-
-    def update
+        post = Post.find(params[:post_id])
+        like = current_end_user.likes.new(post_id: post.id)
+        like.save
+        redirect_to post_path(post)
     end
 
     def destroy
+        post = Post.find(params[:post_id])
+        like = current_end_user.likes.find_by(post_id: post.id)
+        like.destroy
+        redirect_to post_path(post)
     end
 
 
 end
+
+

@@ -1,3 +1,37 @@
 // Place all the styles related to the Admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// show画面
+.form-box-show{
+    margin-bottom: 10px;
+}
+
+// 部分テンプレート（admin_box）
+.links{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.admin-menu{
+    color: #5d627b;
+}
+
+
+// 部分テンプレート（add_genre）
+.genre-form-box{
+    padding-top: 60px;
+}
+
+.form-group-genre{
+    padding-bottom: 20px;
+    padding-top: 5px;
+}

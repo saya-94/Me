@@ -2,44 +2,56 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h2>登録ユーザー一覧</h2>
 
+
+    <%# サイドメニューここから %>
+        <div class="col-md-3">
+            <%= render 'common_template/admin_box.html' %>
+        </div>
+    <%# サイドメニューここまで %>
+
+        <div class="col-md-9">
+            <h2>ユーザー一覧</h2>
 
 <%# 検索バーをかくとこ！！！！　ここから %>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
 
-                        <h3>検索</h3>
-                        <%= search_form_for @q, url: admins_path do |f| %>
-                        <div class="form-box">
-                            <%= f.label :ユーザー名 %>
-                            <%= f.search_field :neme_cont_any, class: "form-control pull-left", :style=>"width: 67%;" %>
+                        <%= render 'common_template/admin_search' %>
 
-                            <%= f.label :年齢 %>
-                            <%= f.number_field :age_gteq %>以上〜
-                            <%= f.number_field :age_lt %>未満
-
-                            <%= f.label :性別 %>
-                            <%= f.radio_button :sex_eq, '', {:checked => true} %>指定なし
-                            <%= f.radio_button :sex_eq, 1 %>男性
-                            <%= f.radio_button :sex_eq, 2 %>女性
-                            <%= f.radio_button :sex_eq, 3 %>子ども
-
-                            <%= f.submit '検索', class: "btn btn-default", :style=> "width:33%;" %>
-                        </div>
-
-                        <% end %>
-
-                    
-                    
                     </div>
                 </div>
 <%# 検索バーをかくとこ！！！！　ここまで %>
 
-                
 
+            <table class="table table-striped table-responsive">
+            <thead>
+                <tr>
+                <th><strong>ユーザー名</strong></th>
+                <th><strong>年齢</strong></th>
+                <th><strong>性別</strong></th>
+                <th><strong>ステータス</strong></th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @end_users.each do |f| %>
+                <tr>
+                    <td><%= f.name %></td>
 
+                <% if f.age == -1 %>
+                        <td><%= '未回答' %></td>
+                <% else %>
+                        <td><%= f.age %></td>
+                <% end %>
+                    <td><%= f.sex %></td>
+                    <%# 削除済みの場合は「削除」の表示 %>
+                    <td class = "red-text"><%= f.deleted_at ? "削除済" : "アクティブ"  %></td>
+                    <td><%= link_to "詳細", admin_path(f.id), class: "btn btn-primary"%></td>
+                </tr>
+                <% end %>
+            </tbody>
+            </table>
 
         </div>
     </div>

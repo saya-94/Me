@@ -9,9 +9,10 @@
     // タブ
 .tab-group{
     display: flex;
-    width: 150%;
+    width: 100%;
     justify-content: center;
     margin-top: 50px;
+    margin-bottom: 40px;
 }
 .tab{
     flex-grow: 1;
@@ -23,9 +24,7 @@
 }
 .panel-group{
     height:100px;
-    border:solid 1px #CCC;
     border-top:none;
-    background:#eee;
 }
 .panel{
     display:none;
@@ -39,6 +38,16 @@
     display:block;
 }
 
+.image-box{
+    display: inline-block;
+}
+
+.post-image{
+    width:281px;
+    height:281px;
+    object-fit:cover;
+}
+
 
     // 写真、プロフィール情報
 .fas{
@@ -49,12 +58,12 @@
 
 .img{
     border-radius: 50%;
-    margin: 30px 0 0 60%;
+    margin: 30px 0 0 0;
 }
 
 .show{
     margin-bottom: 20px;
-    margin-left: 50%;
+    // margin-left: 200px;
 }
 
 #user-name{
@@ -67,14 +76,8 @@
 
 
 
+
     // ヘッダー
-
-// h1{
-//     padding-bottom: 5px;
-//     font-size: 15px;
-// }
-
-
 
 .header-link{
     color: #FFF;
@@ -114,3 +117,4 @@ header{
 .actions{
     margin-bottom: 25px;
 }
+

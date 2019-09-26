@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <h3>検索</h3>
+
+            <%# 検索バー ここから %>
+            <%= search_form_for @q, url: admins_path do |f| %>
+            <div class="search-form-box">
+
+
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>ユーザー名</div>
+                        <%= f.search_field :name_cont, class: "form-control pull-left", :style=>"width: 67%;" %>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>年齢</div>
+                        <%= f.number_field :age_gteq %>以上〜
+                        <%= f.number_field :age_lt %>未満
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>性別</div>
+                        <%= f.radio_button :sex_eq, '', {:checked => true} %>指定なし
+                        <%= f.radio_button :sex_eq, "MAN" %>男性
+                        <%= f.radio_button :sex_eq, "WOMAN" %>女性
+                        <%= f.radio_button :sex_eq, "KIDS" %>子ども
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div>ステータス</div>
+                        <%= f.radio_button :deleted_at, '' %>指定なし
+                        <%= f.radio_button :deleted_at, "削除済" %>削除済のみ
+                        <%= f.radio_button :deleted_at, "アクティブ" %>アクティブユーザーのみ
+                    </div>
+                </div>
+
+                    <%= f.submit '検索', class: "btn btn-default", :style=> "width:33%;" %>
+            </div>
+
+            <% end %>
+            <%# 検索バー ここまで %>
+
+
+
+        </div>
+    </div>
+</div>

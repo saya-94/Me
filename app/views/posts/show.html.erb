@@ -1,9 +1,53 @@
 <%= render 'common_template/header' %>
 
+
 <div class="container">
     <div class="row">
+        <div class="col-md-2"></div>
         <div class="col-md-8">
 
+            <div class="row">
+                <%= link_to end_user_path(current_end_user), class: "post-link" do %>
+                <div class="col-md-8 post-show-prfl-img">
+                    <%= attachment_image_tag @post.end_user, :profile_image, format: 'jpeg', fallback: "人物アイコン.jpg", size: "70x70",class: "img" ,id: "show-icon" %>
+                </div>
+                <div class="col-md-4 post-show-prfl-img">
+                    <span class="show-user-name"><%= @post.end_user.name %></span>
+                </div>
+                <% end %>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <%= attachment_image_tag @post, :image ,class: "show-post-img"%>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-left post-img-under" >
+                    あ
+                    <%# <%= render 'common_template/like' %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 post-show-comment">
+                    <div class="comment-box">
+                        <%= @post.comment %>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12 text-right post-show-btn" >
+                    <%= link_to "Edit", edit_post_path(@post.id), class: 'btn btn-default btn-sm' %>
+                    |
+                    <%= link_to "Destroy", post_path(@post.id), method: :delete, "data-confirm" => "削除してよろしいですか？", class: 'btn btn-default btn-sm' %>
+                </div>
+            </div>
+
         </div>
+        <div class="col-md-2"></div>
     </div>
 </div>

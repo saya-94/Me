@@ -1,6 +1,17 @@
 class EndUsersController < ApplicationController
     # before_action :endUserValidate , only[:new,:update,:create]
+
+
+    def after_sign_in_path_for(resource)
+      end_user_path(resource) # ログイン後にマイページへ遷移するpathを設定
+    end
+
+    def after_sign_out_path_for(resource)
+      root_path # ログアウト後にItemのインデックスへ遷移するpathを設定
+    end
+
     def index
+        
     end
 
     def show
@@ -53,7 +64,7 @@ class EndUsersController < ApplicationController
 
         private
         def end_user_params
-          params.require(:end_user).permit(:name,:sex,:email,:profile_image,:age,:heigt,:introduction)
+          params.require(:end_user).permit(:name,:sex,:email,:profile_image,:age,:height,:introduction)
         end
     
     
