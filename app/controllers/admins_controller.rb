@@ -4,12 +4,16 @@ class AdminsController < ApplicationController
     @q = EndUser.ransack(params[:q])
     if params[:q].blank?
       @end_users = @q.result(distinct: true).with_deleted
+                      .page(params[:page]).reverse_order
     elsif params[:q][:deleted_at] == "削除済"
       @end_users = @q.result(distinct: true).only_deleted
+                      .page(params[:page]).reverse_order
     elsif params[:q][:deleted_at] == "アクティブ"
       @end_users = @q.result(distinct: true)
+                      .page(params[:page]).reverse_order
     else
       @end_users = @q.result(distinct: true).with_deleted
+                      .page(params[:page]).reverse_order
     end
 
   end

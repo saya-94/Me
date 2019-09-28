@@ -45,9 +45,6 @@ Rails.application.routes.draw do
   end
 
 
-
-
-
   # 投稿
   resources :posts do
     # いいね
@@ -60,7 +57,10 @@ Rails.application.routes.draw do
   resources :followers
 
   #ジャンル
-  resources :genres, only: [:index, :create, :update]
-  delete 'genre/destroy' => "genres#destroy", as: 'destroy_genre'
+  resources :genres
 
-end
+
+
+
+
+  end

@@ -52,7 +52,9 @@
                 <% end %>
             </tbody>
             </table>
-
+            <%= paginate @end_users, class: "paginate" %>
         </div>
     </div>
 </div>
+
+<%= render 'common_template/footer' %>

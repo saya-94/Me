@@ -62,7 +62,16 @@
 
     // フッター
 
+    .footer{
+        background-color: rgba( 0, 0, 0, 0.8);
+        margin-top: 40px;
+        width: 100%;
+        height: 70px;
+        line-height: 70px;
+        color: #fff;
+        text-align: center;
 
+    }
 
 
 
@@ -117,4 +126,20 @@
 
     .post-show-btn{
         margin: 20px 0 20px 0;
+    }
+
+    // いいね周辺
+    .like-bkm{
+        margin-top: 5px;
+        font-size: 1.2em;
+    }
+
+
+    // admin画面の検索フォーム
+    .search-form-box{
+        margin-bottom: 55px;
+    }
+
+    .admin-seatch-form{
+        margin-bottom: 17px;
     }

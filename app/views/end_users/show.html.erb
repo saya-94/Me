@@ -27,7 +27,7 @@
                             <% if @end_user.height == -1 %>
                                     <td><%= '未回答' %></td>
                             <% else %>
-                                    <td><%= @end_user.height %></td>
+                                    <td><%= @end_user.height %>cm</td>
                             <% end %>
                         </div>
                     </div>
@@ -86,3 +86,5 @@
         </div>
     </div>
 </div>
+
+<%= render 'common_template/footer' %>

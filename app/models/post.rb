@@ -14,12 +14,15 @@ class Post < ApplicationRecord
   # refile用
   attachment :image
 
+
+  has_many :likes, dependent: :destroy
+
   belongs_to :end_user
   belongs_to :genre
 
-    # いいね機能
-    def liked_by?(end_user)
-      likes.where(end_user_id: end_user.id).exists?
-    end
+  # いいね機能
+  def favorited_by?(end_user)
+    likes.where(end_user_id: end_user.id).exists?
+  end
 
 end
