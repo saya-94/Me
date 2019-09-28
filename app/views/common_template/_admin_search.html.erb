@@ -12,14 +12,14 @@
 
 
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5 admin-seatch-form">
                         <div>ユーザー名</div>
                         <%= f.search_field :name_cont, class: "form-control pull-left", :style=>"width: 67%;" %>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5 admin-seatch-form">
                         <div>年齢</div>
                         <%= f.number_field :age_gteq %>以上〜
                         <%= f.number_field :age_lt %>未満
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5 admin-seatch-form">
                         <div>性別</div>
                         <%= f.radio_button :sex_eq, '', {:checked => true} %>指定なし
                         <%= f.radio_button :sex_eq, "MAN" %>男性
@@ -38,7 +38,7 @@
 
 
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5 admin-seatch-form">
                         <div>ステータス</div>
                         <%= f.radio_button :deleted_at, '' %>指定なし
                         <%= f.radio_button :deleted_at, "削除済" %>削除済のみ

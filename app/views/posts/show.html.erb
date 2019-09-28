@@ -23,10 +23,27 @@
                 </div>
             </div>
 
+            <%# いいね＆ブックマーク %>
             <div class="row">
-                <div class="col-md-12 text-left post-img-under" >
-                    あ
+                <div class="col-md-12 text-left like-bkm" >
+
+                    <%# 「MissingTemplate」のエラーが出て部分テンプレートできなかった〜。謎。悔しい。 %>
                     <%# <%= render 'common_template/like' %>
+                    <% if @post.favorited_by?(current_end_user) %>
+                    <span>
+                        <%= link_to post_likes_path(@post), method: :delete do %>
+                        <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+                        <%= @post.likes.count %> いいね
+                        <% end %>
+                    </span>
+                    <% else %>
+                    <span>
+                        <%= link_to post_likes_path(@post), method: :post do %>
+                        <i class="far fa-heart" aria-hidden="true"></i>
+                        <%= @post.likes.count %> いいね
+                        <% end %>
+                    </span>
+                    <% end %>
                 </div>
             </div>
 
@@ -51,3 +68,5 @@
         <div class="col-md-2"></div>
     </div>
 </div>
+
+<%= render 'common_template/footer' %>

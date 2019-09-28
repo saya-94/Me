@@ -1,5 +1,6 @@
 class EndUsersController < ApplicationController
     # before_action :endUserValidate , only[:new,:update,:create]
+    before_action :correct_user, only: [:edit, :update]
 
 
     def after_sign_in_path_for(resource)
@@ -7,7 +8,7 @@ class EndUsersController < ApplicationController
     end
 
     def after_sign_out_path_for(resource)
-      root_path # ログアウト後にItemのインデックスへ遷移するpathを設定
+      root_path # ログアウト後にPostのインデックスへ遷移するpathを設定
     end
 
     def index
@@ -74,8 +75,8 @@ class EndUsersController < ApplicationController
     
     
         def correct_user
-            user = EndUser.find(params[:id])
-          if current_end_user != user
+            end_user = EndUser.find(params[:id])
+          if current_end_user != end_user
             redirect_to end_user_path(current_end_user)
           end
         end
