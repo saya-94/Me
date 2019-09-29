@@ -51,9 +51,9 @@
                 <div class="col-md-12">
                     <ui class="tab-group">
                         <li class="tab is-active">マイコーデ</li>
-                    <% if end_user_signed_in? && current_end_user.id %>
-                        <li class="tab">ブックマーク</li>
-                    <% end %>
+                    <%# <% if @end_user == current_end_user %>
+                        <%# <li class="tab">ブックマーク</li> %>
+                    <%# <% end %>
                     </ui>
                 </div>
             </div>
@@ -71,14 +71,13 @@
                     <% end %>
                 </div>
 
-                <%# ブックマークの画像一覧 %>
+                <%# ブックマークの画像一覧
                 <div class="panel">
                     <% @post.each do |post| %>
-                        <%= post.image %>
-                        aaaaaa
+                        <%# <%= post.image %>
                         <%# <%= attachment_image_tag @post, :image, :fill, 50, 50 %>
-                    <% end %>
-                </div>
+                    <%# <% end %>
+                <%# </div> %>
 
             </div>
 

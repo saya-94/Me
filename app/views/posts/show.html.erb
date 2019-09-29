@@ -7,12 +7,12 @@
         <div class="col-md-8">
 
             <div class="row">
-                <%= link_to end_user_path(current_end_user), class: "post-link" do %>
+                <%= link_to end_user_path(@end_user), class: "post-link" do %>
                 <div class="col-md-8 post-show-prfl-img">
-                    <%= attachment_image_tag @post.end_user, :profile_image, format: 'jpeg', fallback: "人物アイコン.jpg", size: "70x70",class: "img" ,id: "show-icon" %>
+                    <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "人物アイコン.jpg", size: "70x70",class: "img" ,id: "show-icon" %>
                 </div>
                 <div class="col-md-4 post-show-prfl-img">
-                    <span class="show-user-name"><%= @post.end_user.name %></span>
+                    <span class="show-user-name"><%= @end_user.name %></span>
                 </div>
                 <% end %>
             </div>
@@ -26,24 +26,7 @@
             <%# いいね＆ブックマーク %>
             <div class="row">
                 <div class="col-md-12 text-left like-bkm" >
-
-                    <%# 「MissingTemplate」のエラーが出て部分テンプレートできなかった〜。謎。悔しい。 %>
-                    <%# <%= render 'common_template/like' %>
-                    <% if @post.favorited_by?(current_end_user) %>
-                    <span>
-                        <%= link_to post_likes_path(@post), method: :delete do %>
-                        <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-                        <%= @post.likes.count %> いいね
-                        <% end %>
-                    </span>
-                    <% else %>
-                    <span>
-                        <%= link_to post_likes_path(@post), method: :post do %>
-                        <i class="far fa-heart" aria-hidden="true"></i>
-                        <%= @post.likes.count %> いいね
-                        <% end %>
-                    </span>
-                    <% end %>
+                    <%= render '/common_template/like' %>
                 </div>
             </div>
 
@@ -57,11 +40,13 @@
 
 
             <div class="row">
+            <% if @end_user == current_end_user %>
                 <div class="col-md-12 text-right post-show-btn" >
                     <%= link_to "Edit", edit_post_path(@post.id), class: 'btn btn-default btn-sm' %>
                     |
                     <%= link_to "Destroy", post_path(@post.id), method: :delete, "data-confirm" => "削除してよろしいですか？", class: 'btn btn-default btn-sm' %>
                 </div>
+                <% end %>
             </div>
 
         </div>

@@ -1,19 +1,14 @@
 class EndUsersController < ApplicationController
-    # before_action :endUserValidate , only[:new,:update,:create]
-    before_action :correct_user, only: [:edit, :update]
+
+  before_action :authenticate_end_user!
+  before_action :correct_user, only: [:edit, :update]
+  # before_action :correct_user, except: [:change_password, :password_update]
 
 
-    def after_sign_in_path_for(resource)
-      end_user_path(resource) # ログイン後にマイページへ遷移するpathを設定
-    end
 
-    def after_sign_out_path_for(resource)
-      root_path # ログアウト後にPostのインデックスへ遷移するpathを設定
-    end
 
-    def index
-        
-    end
+    # def index
+    # end
 
     def show
         @end_user = EndUser.find(params[:id])
@@ -39,6 +34,10 @@ class EndUsersController < ApplicationController
           render :edit
         end
     end
+
+
+
+
 
     def change_password
         @end_user = current_end_user
@@ -75,8 +74,8 @@ class EndUsersController < ApplicationController
     
     
         def correct_user
-            end_user = EndUser.find(params[:id])
-          if current_end_user != end_user
+            user = EndUser.find(params[:id])
+          if current_end_user != user
             redirect_to end_user_path(current_end_user)
           end
         end

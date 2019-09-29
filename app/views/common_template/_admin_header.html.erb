@@ -24,11 +24,7 @@
                     <%# ユーザーがログイン中なら、「ログアウト」「設定アイコン」を表示 %>
                     <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %><br>
 
-                    <div class="col-md-6">
-                        <div class="new-post-link" >
-                            <%= link_to "", admin_path, class: "fas fa-cogs" %>
-                        </div>
-                    </div>
+
                 <% else %>
                     <%= link_to "ログイン", new_end_user_session_path %><br>
                 <% end %>

@@ -61,7 +61,7 @@
 
                             <%# 論理削除済ユーザーは「退会」ボタンの表示を %>
                             <% if @end_user.deleted_at.blank? %>
-                            <%= link_to "退会", delete_users_admin_path, method: :delete , class: "btn btn-danger pull-right", data: { confirm: "本当に退会させますか？"}%>
+                            <%= link_to "退会", destroy_users_admin_path, method: :delete , class: "btn btn-danger pull-right", data: { confirm: "本当に退会させますか？"}%>
                             <% end %>
                         </div>
                     </div>

@@ -41,11 +41,10 @@
                     <%= f.submit "変更する", class: "btn btn-default actions" %>
                 </div>
 
+                <div class="link"><%= link_to "戻る", setting_end_user_path(@end_user.id) %></div>
+
                 <% end %>
 
-
-
-            <div class="link"><%= link_to "戻る", end_user_path(@end_user.id) %></div>
 
         </div>
     </div>

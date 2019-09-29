@@ -1,5 +1,17 @@
 class AdminsController < ApplicationController
 
+  before_action :authenticate_admin!
+
+
+  def after_sign_in_path_for(resource)
+    admins_path(resource) # ログイン後にindexへ遷移するpathを設定
+  end
+
+  # def after_sign_out_path_for(resource)
+  #   root_path # ログアウト後にPostのインデックスへ遷移するpathを設定
+  # end
+
+
   def index
     @q = EndUser.ransack(params[:q])
     if params[:q].blank?
@@ -30,7 +42,7 @@ class AdminsController < ApplicationController
       
   end
 
-	def delete
+	def destroy
 		@end_user = EndUser.find(params[:id])
 		@end_user.destroy
 		redirect_to admins_path

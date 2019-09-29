@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+    before_action :authenticate_end_user!, except: [:index]
+    before_action :correct_user, only: [:edit, :update]
+
     def index
         @post = Post.all
 
@@ -16,6 +19,7 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find(params[:id])
+        @end_user = @post.end_user
     end
 
     def new
@@ -58,6 +62,13 @@ class PostsController < ApplicationController
       params.require(:post).permit(:comment, :sex_post, :image, :style_id, :genre_id)
     end
 
+    def correct_user
+        post = Post.find(params[:id])
+        user = post.end_user
+      if current_end_user != user
+        redirect_to end_user_path(current_end_user)
+      end
+    end
 
 
 end

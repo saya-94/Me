@@ -6,6 +6,7 @@
             <div class="setting-link"><%= link_to "プロフィール編集",  edit_end_user_path, class: "btn btn-default setting-btn" %></div>
             <div class="setting-link"><%= link_to "メールアドレス変更",  change_email_end_users_path, class: "btn btn-default setting-btn" %></div>
             <div class="setting-link"><%= link_to "パスワード変更",  change_password_end_users_path, class: "btn btn-default setting-btn" %></div>
+            <div class="setting-link"><%= link_to "退会はこちら", end_user_registration_path, method: :delete , class: "btn btn-default setting-btn", data: { confirm: "本当に退会しますか？"}%></div>
 
             <div class="link"><%= link_to "戻る", end_user_path(@end_user.id) %></div>
         
