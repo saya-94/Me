@@ -9,7 +9,7 @@
             <div class="row">
                 <%= link_to end_user_path(@end_user), class: "post-link" do %>
                 <div class="col-md-8 post-show-prfl-img">
-                    <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "人物アイコン.jpg", size: "70x70",class: "img" ,id: "show-icon" %>
+                    <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "/images/人物アイコン.jpg", size: "70x70",class: "img" ,id: "show-icon" %>
                 </div>
                 <div class="col-md-4 post-show-prfl-img">
                     <span class="show-user-name"><%= @end_user.name %></span>

@@ -10,7 +10,7 @@
 
                 <div class="text-right profile-image">
                     <div class="col-md-6">
-                        <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "人物アイコン.jpg", size: "300x300",class: "img" %>
+                        <%= attachment_image_tag @end_user, :profile_image, format: 'jpeg', fallback: "/images/人物アイコン.jpg", size: "300x300",class: "img" %>
                     </div>
                 </div>
 
@@ -33,9 +33,9 @@
                     </div>
 
                     <%# フォロワー %>
-                    <div class="row form-box text-left">
+                    <%# <div class="row form-box text-left">
                         <div class="col-md-12 show">フォロー/フォロワー</div>
-                    </div>
+                    </div> %>
 
                     <%# 自己紹介 %>
                     <div class="row form-box text-left">
