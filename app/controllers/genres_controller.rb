@@ -1,7 +1,7 @@
 class GenresController < ApplicationController
 
     def index
-        @genres = Genre.page(params[:page]).reverse_order
+        @genres = Genre.order('genre ASC').page(params[:page])
         @genre = Genre.new
     end
 

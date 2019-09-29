@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   # 管理者
   resources :admins, only: [:index, :show, :edit, :update] do
   member do
-  delete "/delete_users" => "admins#delete", as:"delete_users"
+  delete "/destroy_users" => "admins#destroy", as:"destroy_users"
   get '/search' => "admin#search"
   end
   end
